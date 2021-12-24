@@ -1,0 +1,43 @@
+<mat-toolbar color="primary" class="expanded-toolbar">
+  <span>
+    <button mat-button [routerLink]="['/']"> {{title}} </button>
+    <button mat-button [routerLink]="['/']">  
+      <mat-icon> home </mat-icon>
+    </button>
+  </span>
+  <div fxLayout="row" fxShow="false" fxShow.gt-sm>
+    <button mat-button [routerLink]="['/login']">
+      <mat-icon> power_setting_news </mat-icon>
+      Login
+    </button>
+    <button mat-button [routerLink]="['/logout']">
+      <mat-icon> exit_to_app </mat-icon>
+      Logout
+    </button>
+    <button mat-button [routerLink]="['/game']">
+      <mat-icon> gamepad </mat-icon>
+      Play
+    </button>
+    <button mat-button [matMenuTriggerFor]="menu" fxHide="false" fxHide.gt-sm>
+      <mat-icon> menu </mat-icon>
+    </button>
+  </div>
+</mat-toolbar>
+<mat-menu #menu="matMenu" x-position="before">
+  <button mat-button [routerLink]="['/']">
+    <mat-icon> home </mat-icon>
+  </button>
+  <button mat-menu-item [routerLink]="['/game']">
+    <mat-icon> gamepad </mat-icon>
+    Play
+  </button>
+  <button mat-menu-item [routerLink]="['/login']">
+    <mat-icon> power_setting_news </mat-icon>
+    Login
+  </button>
+  <button mat-menu-item>
+    <mat-icon> exit_to_app </mat-icon>
+    Logout
+  </button>
+</mat-menu>
+<router-outlet></router-outlet>
