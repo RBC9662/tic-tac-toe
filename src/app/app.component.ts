@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-root',
@@ -7,8 +9,12 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
 
-  title: string = 'Tic-Toe';
+  title: string = '';
   isAuthenticated: boolean = false;
 
+  constructor(route: Router, location: Location) {
+    let str = location.path(false);
+    this.title = str.replace(/\\|\//g,'');
+  }
   
 }
